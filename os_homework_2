@@ -1,0 +1,26 @@
+mon_backtrace(int argc,char **argv,struct Trapframe 8TF)
+{
+//add
+uint32_t ebp,eip;
+uint32_t args[5];
+uint32_t *temp;
+ebp=read_ebp();
+cprintf("Stack backtrace:\n");
+while(ebp!=0){
+	temp=(uint32_t *)ebp;
+	eip=*(temp+1);
+	args[0]=*temp+2);
+	args[1]=*temp+3);
+	args[2]=*temp+4);
+	args[3]=*temp+5);
+	args[4]=*temp+6);
+	cprintf("ebp %-8x eip %08x args %08x %08x %08x %08x %08x\n"
+,ebp,eip,arg[0],arg[1],arg[2],arg[3],arg[4]);
+	ebp=*temp;
+}
+
+static struct Command commands[] = {
+	{"help","Display this list of commands',mon_help},
+	{"kerninfo","Display information about the kernel",mon_kerninfo},
+	{"min_backtrace" ,'Bcktrace funcations call chain",mon_backtrace},
+};
