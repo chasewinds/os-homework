@@ -1,0 +1,17 @@
+//Your code goes here;
+int i=0;
+int perm=PTE_U|PTE_P;
+n=RPUNDUP(npages*sizeof(struct Page),PGSIZE);
+for(i = 0;i<n;i=i+PGSIZE)
+{
+page_insert(kern_pgdir,pa2page(PADDR(pages+i),(void*)(UPAGES+i),perm);
+}
+
+part2;
+//Your code goes here;
+perm=PTE_P|PTE_W;
+boot_map_region(kern_pgdir,KSTACKTOP - KSTKSIZE,ROUNDUP(KSTKSIZE,PGSIZE),PADDER(bootstack),perm);
+
+part3:
+//Your code goes here:
+boot_map_region(kern_pgdir,KERNBASE,1 << 28,(physaddr_t)0,PTE_W);
