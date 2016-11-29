@@ -1,0 +1,3 @@
+num =getuint(&ap,lflag);
+base=8;
+goto number;
